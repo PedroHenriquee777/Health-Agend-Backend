@@ -5,3 +5,4 @@ export type CreatePatientInput = {
     phone: string;
     email?: string;
   };
+
