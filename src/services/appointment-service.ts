@@ -5,12 +5,7 @@ import { DoctorRepository } from "../repositories/doctor-repository";
 import { PatientRepository } from "../repositories/patient-repository";
 import { AppointmentRepository } from "../repositories/appointment-repository";
 import { ScheduleRepository } from "../repositories/schedule-repository";
-
-type CreateAppointmentInput = {
-  patientId: string;
-  doctorId: string;
-  date: string; // ISO
-};
+import { CreateAppointmentInput } from "../types/create-appointment-input";
 
 function requireString(value: unknown, field: string) {
   if (typeof value !== "string" || value.trim() === "") {
@@ -93,7 +88,6 @@ export const AppointmentService = {
           patientId: data.patientId,
           doctorId: data.doctorId,
           date,
-          // status default = PENDING (regra)
         },
       });
 
@@ -148,8 +142,6 @@ export const AppointmentService = {
         "APPOINTMENT_NOT_FOUND",
       );
 
-    // cancel/remover: aqui optamos por remover de vez (rota DELETE).
-    // Se você quiser "cancelar" mantendo histórico, trocamos por updateStatus(CANCELLED).
     return AppointmentRepository.delete(id);
   },
 };
