@@ -1,7 +1,7 @@
 import { BadRequestError, ConflictError, NotFoundError } from "../http/errors";
 import { PatientRepository } from "../repositories/patient-repository";
-import type { CreatePatientInput } from "../types/CreatePatientInput";
-import type { UpdatePatientInput } from "../types/UpdatePatientInput";
+import type { CreatePatientInput } from "../types/create-patient-input";
+import type { UpdatePatientInput } from "../types/update-patient-input";
 
 // validação genérica de string obrigatória (vou fortalecer essa validação e retirar daqui, zod talvez?)
 function requireString(value: unknown, field: string) {
