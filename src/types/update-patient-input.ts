@@ -1,6 +1,4 @@
+import type { CreatePatientInput } from "./create-patient-input";
+
 // tipagem de dados que precisam entrar pra atualizar dados de um paciente
-export type UpdatePatientInput = {
-    name?: string;
-    phone?: string;
-    email?: string | null;
-  };
+export type UpdatePatientInput = Partial<CreatePatientInput>;
