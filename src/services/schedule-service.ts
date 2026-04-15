@@ -1,11 +1,7 @@
 import { BadRequestError, ConflictError, NotFoundError } from "../http/errors";
 import { DoctorRepository } from "../repositories/doctor-repository";
 import { ScheduleRepository } from "../repositories/schedule-repository";
-
-type CreateScheduleInput = {
-  doctorId: string;
-  date: string;
-};
+import { CreateScheduleInput } from "../types/create-schedule-input";
 
 function requireString(value: unknown, field: string) {
   if (typeof value !== "string" || value.trim() === "") {
